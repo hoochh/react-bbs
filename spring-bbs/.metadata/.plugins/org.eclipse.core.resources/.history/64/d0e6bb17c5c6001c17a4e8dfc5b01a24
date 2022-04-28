@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.orf/dtd.mybatis-3-mapper.dtd">
+<mapper namespace="com.bitc.big403.mapper.BoardMapper">
+
+<select id="selectBoardList" resultType="com.bitc.big403.dto.BoardDto">
+	<![CDATA[
+		SELECT
+			board_no,
+			title,
+			create_id,
+			DATE_FORMAT(create_date, '%Y.%m.%d %H:%i:%s') AS create_date,
+			hit_cnt
+		FROM 
+			board
+		WHERE
+			delete_yn = 'N'
+		ORDER BY board_no DESC
+	]]>
+</select>
+
+<insert id="insertBoard">
+	<![CDATA[ 
+		SELECT
+			title,
+			contents,
+			create_id,
+			DATE_FORMAT(create_date, '%Y.%m.%d %H:%i:%s') AS create_date,
+		FROM
+			board
+		WHERE
+			board_no = #{board_no}
+	]]>
+</insert>
+
+<select id="readBoard" resultType="com.bitc.big403.dto.BoardDto">
+</select>
+
+<update id="updateBoard">
+</update>
+
+<update id="deleteBoard">
+</update>
+
+</mapper>

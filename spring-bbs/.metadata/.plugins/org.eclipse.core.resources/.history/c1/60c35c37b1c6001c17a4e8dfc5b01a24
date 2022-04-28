@@ -1,0 +1,10 @@
+package com.bitc.big403.configuration;
+
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
+
+@Configuration
+@PropertySource("classpath:/application.properties")
+public class DatabaseConfiguration {
+	
+}

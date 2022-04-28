@@ -1,0 +1,12 @@
+package com.bitc.big403.mapper;
+
+import java.util.List;
+
+import com.bitc.big403.dto.BoardDto;
+
+@Mapper
+public interface BoardMapper {
+
+	List<BoardDto> selectBoardList() throws Exception;
+
+}

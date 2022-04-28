@@ -1,0 +1,25 @@
+package com.bitc.big403.configuration;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
+
+import com.zaxxer.hikari.HikariConfig;
+
+@Configuration
+@PropertySource("classpath:/application.properties")
+public class DatabaseConfiguration {
+	
+	@Autowired
+	private ApplicationContext appContext;
+	
+	// DB설정
+	@Bean
+	@ConfigurationProperties(prefix="spring.datasource.hikari")
+	public HikariConfig hikariConfig() {
+		return new HikariConfig();
+	}
+}

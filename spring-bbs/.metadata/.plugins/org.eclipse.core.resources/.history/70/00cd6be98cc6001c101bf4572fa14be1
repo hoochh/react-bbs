@@ -1,0 +1,7 @@
+package com.bitc.big403.controller;
+
+@Controller 
+
+public class TestController {
+
+}

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+	$(document).ready(function() {
+		$("#btn-click").on("click", function() {
+			alert("클릭");
+		});
+		
+		$("#btn-ajax").on("click", function() {
+			var datas = {data : "success"};
+			
+			$.ajax({
+				url: "",
+				type: "post",
+				data: datas,
+				success: function(res){
+					alert("통신 성공\n" + res);
+				},
+				error: function(err){
+					alert("에러가 발생했습니다.\n" + err);
+				}
+			});
+		});
+	});
+</script>
+</head>
+<body>
+	<h1>react와 연동할 서버 테스트.</h1>
+	
+	<button type="button" id="btn-click">클릭</button>
+	<button type="button" id="btn-ajax">서버와 ajax 통신</button>
+		
+</body>
+</html>

@@ -1,0 +1,5 @@
+package com.bitc.big403.mapper;
+
+public interface BoardMapper {
+
+}

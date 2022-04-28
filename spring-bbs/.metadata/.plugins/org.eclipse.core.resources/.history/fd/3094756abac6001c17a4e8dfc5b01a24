@@ -1,0 +1,14 @@
+package com.bitc.big403.mapper;
+
+import java.util.List;
+
+import com.bitc.big403.dto.BoardDto;
+
+public class BoardMapper {
+
+	public List<BoardDto> selectBoardList() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}
