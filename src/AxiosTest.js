@@ -9,8 +9,10 @@ class AxiosTest extends React.Component {
     // (즉, 스프링부트(localhost:9090)와 리액트(localhost:3000)의 서버 주소가 다름)
     //
     axios
-      .get('/ajax/test?data=test') // 통신 에러(주소가 다르기 때문에.. 수정 필요)
+      //.get('http://localhost:9090/ajax/test') // 통신 에러(주소가 다르기 때문에.. 수정 필요)
+      //.get('/ajax/test?data=test')
       //.get('http://yts-proxy.now.sh/list_movies.json') // 통신 성공
+      .get('/ajax/boardList')
       .then((res) => {
         console.log('통신 성공');
         console.log(res);
