@@ -84,23 +84,23 @@ public class TestController {
 //	}
 //	
 // 글 수정
-//	@ResponseBody
-//	@RequestMapping(value="/ajax/boardUpdate/{boardNo}", method=RequestMethod.PUT)
-//	public Object ahaxBoardUpdate(BoardDto board) throws Exception {
-//		boardService.updateBoard(board);
-//		//System.out.println(board);
-//		return "success";
-//	}
-//	
-//// 글 삭제
-//	@ResponseBody
-//	@RequestMapping(value="/ajax/boardDelete/{boardNo}", method=RequestMethod.DELETE)
-//	public Object ajaxBoardDelete(@PathVariable("boardNo") int boardNo) throws Exception {
-//		//System.out.println(boardNo);
-//		
-//		boardService.deleteBoard(boardNo);
-//		
-//		return "success";
-//	}
+	@ResponseBody
+	@RequestMapping(value="/ajax/boardUpdate/{boardNo}", method=RequestMethod.PUT)
+	public Object ahaxBoardUpdate(BoardDto board) throws Exception {
+		boardService.updateBoard(board);
+		//System.out.println(board);
+		return "success";
+	}
+	
+// 글 삭제
+	@ResponseBody
+	@RequestMapping(value="/ajax/boardDelete/{boardNo}", method=RequestMethod.DELETE)
+	public Object ajaxBoardDelete(@PathVariable("boardNo") int boardNo) throws Exception {
+		//System.out.println(boardNo);
+		
+		boardService.deleteBoard(boardNo);
+		
+		return "success";
+	}
 	
 }

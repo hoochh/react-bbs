@@ -45,19 +45,19 @@ public class ReactBoardController {
 		}
 		
 	// 글 수정
-		@RequestMapping(value="/ajax/boardUpdate/{boardNo}", method=RequestMethod.PUT)
-		public Object ahaxBoardUpdate(BoardDto board) throws Exception {
-			boardService.updateBoard(board);
-
-			return "success";
-		}
+//		@RequestMapping(value="/ajax/boardUpdate/{boardNo}", method=RequestMethod.PUT)
+//		public Object ahaxBoardUpdate(BoardDto board) throws Exception {
+//			boardService.updateBoard(board);
+//
+//			return "success";
+//		}
 		
 	// 글 삭제
-		@RequestMapping(value="/ajax/boardDelete/{boardNo}", method=RequestMethod.DELETE)
-		public Object ajaxBoardDelete(@PathVariable("boardNo") int boardNo) throws Exception {
-
-			boardService.deleteBoard(boardNo);
-			
-			return "success";
-		}
+//		@RequestMapping(value="/ajax/boardDelete/{boardNo}", method=RequestMethod.DELETE)
+//		public Object ajaxBoardDelete(@PathVariable("boardNo") int boardNo) throws Exception {
+//
+//			boardService.deleteBoard(boardNo);
+//			
+//			return "success";
+//		}
 }
