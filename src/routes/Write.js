@@ -20,6 +20,14 @@ class Write extends React.Component {
     this.setState({ contents: e.target.value });
   };
 
+  dataClear = () => {
+    this.setState({
+      title: '',
+      contents: '',
+      userId: '',
+    });
+  };
+
   sendData = () => {
     const datas = {
       title: this.state.title,
@@ -101,7 +109,7 @@ class Write extends React.Component {
                       <button type="button" class="btn btn-primary mx-3" onClick={this.sendData}>
                         등록
                       </button>
-                      <button type="reset" class="btn btn-warning">
+                      <button type="reset" class="btn btn-warning" onClick={this.dataClear}>
                         취소
                       </button>
                     </div>
