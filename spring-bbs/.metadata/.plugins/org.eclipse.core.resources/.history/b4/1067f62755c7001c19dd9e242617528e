@@ -1,0 +1,47 @@
+package com.bitc.big403.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.bitc.big403.dto.BoardDto;
+import com.bitc.big403.mapper.BoardMapper;
+
+@Service
+public class BoardServiceImpl implements BoardService{
+	
+	@Autowired
+	private BoardMapper boardMapper;
+	
+	@Override
+	public List<BoardDto> selectBoardList() throws Exception {
+		
+		return boardMapper.selectBoardList();
+	}
+
+	@Override
+	public BoardDto insertBoard() throws Exception {
+		// TODO Auto-generated method stub
+		return boardMapper.insertBoard();
+	}
+
+	@Override
+	public BoardDto readBoard() throws Exception {
+		// TODO Auto-generated method stub
+		return boardMapper.readBoard();
+	}
+
+	@Override
+	public void updateBoard() throws Exception {
+		// TODO Auto-generated method stub
+		boardMapper.updateBoard();
+	}
+
+	@Override
+	public void deleteBoard() throws Exception {
+		// TODO Auto-generated method stub
+		boardMapper.deleteBoard();
+	}
+
+}

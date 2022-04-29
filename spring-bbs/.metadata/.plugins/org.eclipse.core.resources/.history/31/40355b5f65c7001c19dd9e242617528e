@@ -1,0 +1,16 @@
+server.port=9091
+
+# DB access driver setting
+spring.datasource.hikari.driver-class-name=com.mysql.cj.jdbc.Driver
+# DB access uri, user setting option
+spring.datasource.hikari.jdbc-url=jdbc:mysql://localhost:3306/react_board_db?useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC
+# DB id/pw
+spring.datasource.hikari.username=root
+spring.datasource.hikari.password=1234
+spring.datasource.hikari.connection-test-query=SELECT 1
+
+# Use camel case in mybatis
+mybatis.configuration.map-underscore-to-camel-case=true
+
+# Use GET, POST, PUT, DELETE option with Using rest api
+spring.mvc.hiddenmethod.filter.enabled=true

@@ -1,0 +1,24 @@
+package com.bitc.big403.mapper;
+
+import java.util.List;
+
+import org.apache.ibatis.annotations.Mapper;
+
+import com.bitc.big403.dto.BoardDto;
+
+@Mapper
+public interface BoardMapper {
+
+	List<BoardDto> selectBoardList() throws Exception;
+
+	BoardDto selectBoardDetail(int boardNo);
+
+	BoardDto insertBoard(BoardDto board) throws Exception;
+
+	void updateBoard(BoardDto board) throws Exception;
+
+	void deleteBoard(int boardNo) throws Exception;
+
+	void updateHitCount(int boardNo) throws Exception;
+
+}

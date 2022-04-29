@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -49,14 +50,57 @@ public class TestController {
 		return data;
 	}
 	
-	@ResponseBody
-	@RequestMapping(value="/ajax/boardList", method=RequestMethod.GET)
-	public Object ajaxBoardList() throws Exception {
-		
-		List<BoardDto> dataList = boardService.selectBoardList();
-		
-		return dataList;
-	}
-}
+//	@ResponseBody
+//	@RequestMapping(value="/ajax/boardList", method=RequestMethod.GET)
+//	public Object ajaxBoardList() throws Exception {
+//		
+//		List<BoardDto> dataList = boardService.selectBoardList();
+//		
+//		return dataList;
+//	}
+
 
 // 문제 1) BoardService, BoardServiceImpl, BoardMapper, sql-board.xml에 글읽기, 글쓰기, 글수정, 글삭제 기능을 구현하세요
+
+// 필요한 기능
+// 전체글 리스트 출력
+	
+//// 상세글 확인
+//	@ResponseBody
+//	@RequestMapping(value="/ajax/boardDetail/{boardNo}", method=RequestMethod.GET)
+//	public Object ajaxBaordDetail(@PathVariable("boardNo") int boardNo) throws Exception {
+//		BoardDto data = boardService.selectBoardDetail(boardNo);
+//		
+//		return data;
+//	}
+//
+//// 글 쓰기
+//	@ResponseBody
+//	@RequestMapping(value="ajax/boardWrite", method=RequestMethod.POST)
+//	public Object ajaxBoardWrite(BoardDto board) throws Exception {
+//		boardService.insertBoard(board);
+//		System.out.println(board);
+//		return "success";
+//	}
+//	
+// 글 수정
+	@ResponseBody
+	@RequestMapping(value="/ajax/boardUpdate/{boardNo}", method=RequestMethod.PUT)
+	public Object ahaxBoardUpdate(BoardDto board) throws Exception {
+		boardService.updateBoard(board);
+		//System.out.println(board);
+		return "success";
+	}
+	
+// 글 삭제
+	@ResponseBody
+	@RequestMapping(value="/ajax/boardDelete/{boardNo}", method=RequestMethod.DELETE)
+	public Object ajaxBoardDelete(@PathVariable("boardNo") int boardNo) throws Exception {
+		//System.out.println(boardNo);
+		
+		boardService.deleteBoard(boardNo);
+		
+		return "success";
+	}
+	
+}

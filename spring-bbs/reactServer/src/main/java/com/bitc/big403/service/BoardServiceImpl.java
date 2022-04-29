@@ -21,27 +21,31 @@ public class BoardServiceImpl implements BoardService{
 	}
 
 	@Override
-	public BoardDto insertBoard() throws Exception {
-		// TODO Auto-generated method stub
-		return boardMapper.insertBoard();
+	public BoardDto selectBoardDetail(int boardNo) throws Exception {
+		// hitCnt 변경
+		boardMapper.updateHitCount(boardNo);
+		// mapper를 통해서 db에서 가져옴
+		return boardMapper.selectBoardDetail(boardNo);
 	}
 
 	@Override
-	public BoardDto readBoard() throws Exception {
-		// TODO Auto-generated method stub
-		return boardMapper.readBoard();
+	public void insertBoard(BoardDto board) throws Exception {
+		
+		boardMapper.insertBoard(board);
 	}
 
 	@Override
-	public void updateBoard() throws Exception {
-		// TODO Auto-generated method stub
-		boardMapper.updateBoard();
+	public void updateBoard(BoardDto board) throws Exception {
+		
+		boardMapper.updateBoard(board);
+		
 	}
 
 	@Override
-	public void deleteBoard() throws Exception {
-		// TODO Auto-generated method stub
-		boardMapper.deleteBoard();
+	public void deleteBoard(int boardNo) throws Exception {
+		
+		boardMapper.deleteBoard(boardNo);
 	}
+
 
 }

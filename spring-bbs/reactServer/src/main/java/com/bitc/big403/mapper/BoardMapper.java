@@ -3,6 +3,7 @@ package com.bitc.big403.mapper;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 import com.bitc.big403.dto.BoardDto;
 
@@ -11,12 +12,14 @@ public interface BoardMapper {
 
 	List<BoardDto> selectBoardList() throws Exception;
 
-	BoardDto insertBoard() throws Exception;
+	BoardDto selectBoardDetail(@Param("boardNo") int boardNo);
 
-	BoardDto readBoard() throws Exception;
+	void insertBoard(BoardDto board) throws Exception;
 
-	void updateBoard() throws Exception;
+	void updateBoard(BoardDto board) throws Exception;
 
-	void deleteBoard() throws Exception;
+	void deleteBoard(@Param("boardNo") int boardNo) throws Exception;
+
+	void updateHitCount(@Param("boardNo") int boardNo) throws Exception;
 
 }

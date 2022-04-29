@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+	$(document).ready(function() {
+		$("#btn-click").on("click", function() {
+			alert("클릭");
+		});
+		
+		$("#btn-ajax").on("click", function() {
+			var datas = {data : $("#input-text").val()};
+			
+			$.ajax({
+				url: "/ajax/test",
+				type: "get",
+				data: datas,
+				success: function(res){
+					alert("통신 성공\n" + res);
+				},
+				error: function(err){
+					alert("에러가 발생했습니다.\n" + err);
+				}
+			});
+		});
+		$("#btn-board-list").on("click", function() {
+			$.ajax({
+				url: "/ajax/boardList",
+				type: "get",
+				success: function(res){
+					alert("통신 성공\n" + res);
+					console.log(res);
+				},
+				error: function(err){
+					alert("에러가 발생했습니다.\n" + err);
+				}
+			});
+		});
+		
+		$("#btn-detail").on("click", function() {
+			$.ajax({
+				url: "/ajax/boardDetail/1",
+				type: "GET",
+				success: function(res){
+					alert("통신 성공\n" + res);
+				},
+				error: function(err){
+					alert("통신 오류.\n" + err);
+				}
+			});
+		});
+		$("#btn-write").on("click", function() {
+			var datas = {title: $("#input-title").val(), content: $("#input-content").val(), createId: $("#input-user-id").val()} 
+			
+			$.ajax({
+				url: "/ajax/boardWrite",
+				type: "post",
+				data: datas,
+				success: function(res){
+					alert("통신 성공\n" + res);
+					console.log(res);
+				},
+				error: function(err){
+					alert("통신 오류.\n" + err);
+				}
+			});
+		});
+		$("#btn-update").on("click", function() {
+			var datas = {title: $("#input-title").val(), 
+					content: $("#input-content").val(), 
+					updateId: $("#input-user-id").val()} 
+			
+			$.ajax({
+				url: "/ajax/",
+				type: "put",
+				data: datas,
+				success: function(res){
+					alert("통신 성공\n" + res);
+					console.log(res);
+				},
+				error: function(err){
+					alert("통신 오류.\n" + err);
+				}
+			});
+		});
+		$("#btn-delete").on("click", function() {
+			var boardNo = $("#input-num").val()
+			$.ajax({
+				url: "/ajax/boardDelete" + boardNo,
+				type: "delete",
+				success: function(res){
+					alert("통신 성공\n" + res);
+					console.log(res);
+				},
+				error: function(err){
+					alert("통신 오류.\n" + err);
+				}
+			});
+		});
+	});
+</script>
+</head>
+<body>
+	<h1>react와 연동할 서버 테스트.</h1>
+	
+	<label for="input-text">전송할 데이터 : </label>
+	<input type="text" id="input-text">
+	<br><br>
+	<button type="button" id="btn-click">클릭</button>
+	<button type="button" id="btn-ajax">서버와 ajax 통신</button>
+	<button type="button" id="btn-board-list">DB 데이터 리스트 가져오기</button>
+	
+	<br><hr><br>
+	
+	<label for="input-num">글번호 : </label>
+	<input type="text" id="input-num"><br>
+	<label for="input-title">제목 : </label>
+	<input type="text" id="input-title"><br>
+	<label for="input-content">내용 : </label>
+	<input type="text" id="input-content"><br>
+	<label for="input-user-id">사용자 ID : </label>
+	<input type="text" id="input-user-id"><br>
+	<br>
+	<button type="button" id="btn-detail">상세 글 보기</button>
+	<button type="button" id=btn-write>글 쓰기</button>
+	<button type="button" id=btn-update>글 수정</button>
+	<button type="button" id=btn-delete>글 삭제</button>
+</body>
+</html>
