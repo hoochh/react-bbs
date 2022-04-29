@@ -12,7 +12,7 @@ function App() {
     <HashRouter>
       <Navigation />
       <Route path="/" exact={true} component={Home} />
-      <Route path="/detail" exact={true} component={Detail} />
+      <Route path="/detail/:boardno" exact={true} component={Detail} />
       <Route path="/write" exact={true} component={Write} />
     </HashRouter>
     // <div className="App">

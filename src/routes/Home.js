@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 class Home extends React.Component {
   render() {
@@ -51,10 +52,15 @@ class Home extends React.Component {
                   </tbody>
                 </table>
               </div>
+              <div class="d-flex justify-content-end">
+                <button class="btn btn-primary">
+                  <Link to="/Write">글쓰기</Link>
+                </button>
+              </div>
             </article>
           </section>
         </main>
-        <footer class="container-fluid py-5 bg-secondary opacity-50">
+        <footer class="container-fluid mt-5 py-5 border-top">
           <p class="lead text-mute text-center">made by lyk</p>
         </footer>
       </div>

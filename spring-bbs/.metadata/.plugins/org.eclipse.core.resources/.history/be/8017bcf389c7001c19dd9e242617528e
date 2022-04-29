@@ -28,11 +28,13 @@ public class ReactBoardController {
 	}
 	
 	// 상세글 확인
+		@ResponseBody
 		@RequestMapping(value="/ajax/boardDetail/{boardNo}", method=RequestMethod.GET)
 		public Object ajaxBaordDetail(@PathVariable("boardNo") int boardNo) throws Exception {
-			BoardDto data = boardService.selectBoardDetail(boardNo);
-			//System.out.println(boardNo);
-			return data;
+//			BoardDto data = boardService.selectBoardDetail(boardNo);
+			System.out.println(boardNo);
+//			return data;
+			return "success";
 		}
 
 	// 글 쓰기
